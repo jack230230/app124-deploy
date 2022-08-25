@@ -10,7 +10,7 @@ tidb:
   fullnameOverride: tidb
   image:
     repository: ghcr.io/jack230230/tidb
-    tag: 0c3cee3
+    tag: 6385da4
   imagePullSecrets:
     - name: app124-docker
   nocalhost:
