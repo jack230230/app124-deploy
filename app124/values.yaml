@@ -1,0 +1,35 @@
+postgresql:
+  auth:
+    database: db
+    postgresPassword: ""
+  fullnameOverride: postgresql
+  primary:
+    persistence:
+      size: 10Gi
+tidb:
+  fullnameOverride: tidb
+  image:
+    repository: ghcr.io/jack230230/tidb
+    tag: main
+  imagePullSecrets:
+  - name: app124-docker
+  nocalhost:
+    command:
+      debug:
+      - ./mvnw
+      - spring-boot:run
+      - --debug-jvm
+      run:
+      - go
+      - run
+      - tidb-server/main.go
+    configPath: conf/nocalhost.yaml
+    env: null
+    gitURL: https://github.com/jack230230/tidb.git
+    hotReload: false
+    image: ghcr.io/h8r-dev/dev-container/dev-golang:1.19
+    language: golang
+    persistentVolumeDirs: null
+    remoteDebugPort: 9009
+  service:
+    targetPort: 4000
