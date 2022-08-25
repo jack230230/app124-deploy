@@ -10,19 +10,19 @@ tidb:
   fullnameOverride: tidb
   image:
     repository: ghcr.io/jack230230/tidb
-    tag: main
+    tag: 0c3cee3
   imagePullSecrets:
-  - name: app124-docker
+    - name: app124-docker
   nocalhost:
     command:
       debug:
-      - ./mvnw
-      - spring-boot:run
-      - --debug-jvm
+        - ./mvnw
+        - spring-boot:run
+        - --debug-jvm
       run:
-      - go
-      - run
-      - tidb-server/main.go
+        - go
+        - run
+        - tidb-server/main.go
     configPath: conf/nocalhost.yaml
     env: null
     gitURL: https://github.com/jack230230/tidb.git
